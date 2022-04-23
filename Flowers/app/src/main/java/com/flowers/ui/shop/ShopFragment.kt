@@ -22,15 +22,15 @@ class ShopFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
+        val shopViewModel =
             ViewModelProvider(this).get(ShopViewModel::class.java)
 
         _binding = FragmentShopBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val textView: TextView = binding.textShop
+        shopViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = "Welcome to the shop placeholder"
         }
         return root
     }
