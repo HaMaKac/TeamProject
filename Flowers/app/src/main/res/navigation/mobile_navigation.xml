@@ -21,5 +21,5 @@
         android:id="@+id/nav_plant"
         android:name="com.flowers.ui.plant.PlantFragment"
         android:label="@string/menu_plant"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_plant" />
 </navigation>
