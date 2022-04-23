@@ -1,4 +1,4 @@
-package com.flowers.ui.slideshow
+package com.flowers.ui.plant
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.flowers.databinding.FragmentSlideshowBinding
 
-class SlideshowFragment : Fragment() {
+class PlantFragment : Fragment() {
 
     private var _binding: FragmentSlideshowBinding? = null
 
@@ -23,14 +23,14 @@ class SlideshowFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+            ViewModelProvider(this).get(PlantViewModel::class.java)
 
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
+        val textView: TextView = binding.textPlant
         slideshowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+            textView.text = "Welcome to the plant placeholder"
         }
         return root
     }
