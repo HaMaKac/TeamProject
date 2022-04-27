@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class PlantViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is slideshow Fragment"
+        value = "Welcome to the plant placeholder"
     }
     val text: LiveData<String> = _text
 }

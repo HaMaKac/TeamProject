@@ -22,15 +22,15 @@ class PlantFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
+        val plantViewModel =
             ViewModelProvider(this).get(PlantViewModel::class.java)
 
         _binding = FragmentPlantBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textPlant
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = "Welcome to the plant placeholder"
+        plantViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
         }
         return root
     }

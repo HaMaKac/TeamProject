@@ -30,7 +30,7 @@ class ShopFragment : Fragment() {
 
         val textView: TextView = binding.textShop
         shopViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = "Welcome to the shop placeholder"
+            textView.text = it
         }
         return root
     }
