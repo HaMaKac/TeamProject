@@ -6,6 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".ui.shop.ShopFragment">
 
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:text="$5"
+        tools:layout_editor_absoluteX="305dp"
+        tools:layout_editor_absoluteY="580dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:text="$5"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="580dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:text="$5"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="580dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:text="$5"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="383dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:text="$5"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="383dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:text="$5"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="383dp" />
+
     <TextView
         android:id="@+id/text_shop"
         android:layout_width="match_parent"
@@ -20,5 +68,102 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.494" />
+        app:layout_constraintVertical_bias="0.011" />
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="71dp"
+        android:layout_height="71dp"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="74dp"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="71dp"
+        android:layout_height="69dp"
+        tools:layout_editor_absoluteX="170dp"
+        tools:layout_editor_absoluteY="76dp"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/image3"
+        android:layout_width="69dp"
+        android:layout_height="66dp"
+        tools:layout_editor_absoluteX="297dp"
+        tools:layout_editor_absoluteY="76dp"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/image4"
+        android:layout_width="71dp"
+        android:layout_height="72dp"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="279dp"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/image5"
+        android:layout_width="73dp"
+        android:layout_height="71dp"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="279dp"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/image6"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        tools:layout_editor_absoluteX="297dp"
+        tools:layout_editor_absoluteY="279dp"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/image7"
+        android:layout_width="71dp"
+        android:layout_height="73dp"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="465dp"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/image8"
+        android:layout_width="66dp"
+        android:layout_height="70dp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="468dp"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/image9"
+        android:layout_width="69dp"
+        android:layout_height="71dp"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="468dp"
+        tools:src="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:text="$5"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:text="$5"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:text="$5"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="172dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
