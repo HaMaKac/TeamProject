@@ -8,62 +8,119 @@
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="111dp"
         android:text="$5"
-        tools:layout_editor_absoluteX="305dp"
-        tools:layout_editor_absoluteY="580dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button8" />
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="111dp"
         android:text="$5"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="580dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button9"
+        app:layout_constraintStart_toEndOf="@+id/button7" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="111dp"
         android:text="$5"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="580dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button8"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="383dp"
+        android:layout_marginEnd="41dp"
         android:text="$5"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="383dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="383dp"
+        android:layout_marginEnd="57dp"
         android:text="$5"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="383dp" />
+        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="383dp"
+        android:layout_marginEnd="56dp"
         android:text="$5"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="383dp" />
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="41dp"
+        android:text="$5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="57dp"
+        android:text="$5"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="56dp"
+        android:text="$5"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <TextView
         android:id="@+id/text_shop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="33dp"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/image3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,98 +129,108 @@
 
     <ImageView
         android:id="@+id/image1"
-        android:layout_width="71dp"
-        android:layout_height="71dp"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="74dp"
+        android:layout_width="70dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="294dp"
+        app:layout_constraintBottom_toBottomOf="@+id/image2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/image2"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/image2"
-        android:layout_width="71dp"
-        android:layout_height="69dp"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="76dp"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="57dp"
+        app:layout_constraintEnd_toStartOf="@+id/image3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/image3"
-        android:layout_width="69dp"
-        android:layout_height="66dp"
-        tools:layout_editor_absoluteX="297dp"
-        tools:layout_editor_absoluteY="76dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="297dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="585dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_shop"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/image4"
-        android:layout_width="71dp"
-        android:layout_height="72dp"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="279dp"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="279dp"
+        android:layout_marginEnd="51dp"
+        app:layout_constraintEnd_toStartOf="@+id/image5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/image5"
-        android:layout_width="73dp"
-        android:layout_height="71dp"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="279dp"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="279dp"
+        android:layout_marginEnd="59dp"
+        app:layout_constraintEnd_toStartOf="@+id/image6"
+        app:layout_constraintStart_toEndOf="@+id/image4"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/image6"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        tools:layout_editor_absoluteX="297dp"
-        tools:layout_editor_absoluteY="279dp"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="279dp"
+        android:layout_marginEnd="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image5"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/image7"
-        android:layout_width="71dp"
-        android:layout_height="73dp"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="465dp"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="465dp"
+        android:layout_marginEnd="55dp"
+        app:layout_constraintEnd_toStartOf="@+id/image8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/image8"
-        android:layout_width="66dp"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="468dp"
+        android:layout_marginTop="468dp"
+        android:layout_marginEnd="58dp"
+        app:layout_constraintEnd_toStartOf="@+id/image9"
+        app:layout_constraintStart_toEndOf="@+id/image7"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/image9"
-        android:layout_width="69dp"
-        android:layout_height="71dp"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="468dp"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="468dp"
+        android:layout_marginEnd="41dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image8"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
-        android:text="$5"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="172dp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
-        android:text="$5"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="172dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
-        android:text="$5"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="172dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
