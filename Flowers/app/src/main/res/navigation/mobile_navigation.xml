@@ -22,4 +22,9 @@
         android:name="com.flowers.ui.plant.PlantFragment"
         android:label="@string/menu_plant"
         tools:layout="@layout/fragment_plant" />
+    <fragment
+        android:id="@+id/nav_achievements"
+        android:name="com.flowers.ui.achievements.AchievementFragment"
+        android:label="ACHIEVEMENTS"
+        tools:layout="@layout/achievement_fragment"/>
 </navigation>

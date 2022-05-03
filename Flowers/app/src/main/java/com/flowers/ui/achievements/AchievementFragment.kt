@@ -1,32 +1,34 @@
 package com.flowers.ui.achievements
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.flowers.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.flowers.databinding.AchievementFragmentBinding
 
 class AchievementFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = AchievementFragment()
-    }
+    private var _binding: AchievementFragmentBinding? = null
 
-    private lateinit var viewModel: AchievementViewModel
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.achievement_fragment, container, false)
+    ): View {
+        _binding = AchievementFragmentBinding.inflate(inflater, container, false)
+        binding.imageButton20.setOnClickListener{
+            Toast.makeText(activity, "123", Toast.LENGTH_LONG).show()
+        }
+        val root: View = binding.root
+        return root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AchievementViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
-
 }

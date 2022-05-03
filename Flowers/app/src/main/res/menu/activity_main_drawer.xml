@@ -16,5 +16,9 @@
             android:id="@+id/nav_plant"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_plant" />
+        <item
+            android:id="@+id/nav_achievements"
+            android:icon="@drawable/ic_baseline_gamepad_24"
+            android:title="ACHIEVEMENTS"/>
     </group>
 </menu>
