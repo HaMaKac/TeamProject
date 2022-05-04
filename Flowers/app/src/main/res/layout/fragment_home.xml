@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="440dp"
         android:fontFamily="cursive"
-        android:text="garden"
+        android:text="the Garden"
         android:textAlignment="center"
         android:textSize="52sp"
         app:layout_constraintEnd_toEndOf="parent"
