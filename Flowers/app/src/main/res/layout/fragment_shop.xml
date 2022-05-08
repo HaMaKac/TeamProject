@@ -136,12 +136,12 @@
         android:layout_height="0dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="301dp"
+        android:src="@drawable/f1"
         app:layout_constraintBottom_toBottomOf="@+id/image2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/image2"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="@+id/image2" />
 
     <ImageView
         android:id="@+id/image2"
@@ -150,23 +150,22 @@
         android:layout_marginStart="141dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="142dp"
+        android:src="@drawable/f2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image3"
         android:layout_width="70dp"
-        android:layout_height="0dp"
+        android:layout_height="70dp"
         android:layout_marginStart="301dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="593dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/f3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_shop"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image4"
@@ -175,10 +174,10 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="288dp"
         android:layout_marginEnd="301dp"
+        android:src="@drawable/f4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image5"
@@ -187,10 +186,10 @@
         android:layout_marginStart="170dp"
         android:layout_marginTop="288dp"
         android:layout_marginEnd="171dp"
+        android:src="@drawable/f5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image6"
@@ -199,10 +198,10 @@
         android:layout_marginStart="301dp"
         android:layout_marginTop="288dp"
         android:layout_marginEnd="40dp"
+        android:src="@drawable/f6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image7"
@@ -211,10 +210,10 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="468dp"
         android:layout_marginEnd="301dp"
+        android:src="@drawable/f7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image8"
@@ -223,10 +222,10 @@
         android:layout_marginStart="170dp"
         android:layout_marginTop="468dp"
         android:layout_marginEnd="171dp"
+        android:src="@drawable/f8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image9"
@@ -235,10 +234,10 @@
         android:layout_marginStart="300dp"
         android:layout_marginTop="468dp"
         android:layout_marginEnd="41dp"
+        android:src="@drawable/f9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
