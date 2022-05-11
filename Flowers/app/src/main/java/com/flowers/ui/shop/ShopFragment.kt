@@ -49,13 +49,38 @@ class ShopFragment : Fragment() {
 
     fun initializeButtons() {
         binding.button1.setOnClickListener {
-            showPopUp()
+            showPopUp(1)
         }
+        binding.button2.setOnClickListener {
+            showPopUp(2)
+        }
+        binding.button3.setOnClickListener {
+            showPopUp(3)
+        }
+        binding.button4.setOnClickListener {
+            showPopUp(4)
+        }
+        binding.button5.setOnClickListener {
+            showPopUp(5)
+        }
+        binding.button6.setOnClickListener {
+            showPopUp(6)
+        }
+        binding.button7.setOnClickListener {
+            showPopUp(7)
+        }
+        binding.button8.setOnClickListener {
+            showPopUp(8)
+        }
+        binding.button9.setOnClickListener {
+            showPopUp(9)
+        }
+
     }
 
-    fun showPopUp() {
+    fun showPopUp(num : Int) {
         val dialogBuilder = AlertDialog.Builder(context)
-        dialogBuilder.setMessage("flower purchased")
+        dialogBuilder.setMessage("flower nr $num purchased")
         dialogBuilder.setPositiveButton("Ok"
         ) { dialog, whichButton -> }
         val b = dialogBuilder.create()
