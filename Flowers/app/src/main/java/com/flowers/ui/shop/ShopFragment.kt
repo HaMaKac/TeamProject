@@ -30,8 +30,6 @@ class ShopFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val shopViewModel =
-            ViewModelProvider(this).get(ShopViewModel::class.java)
 
         _binding = FragmentShopBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -48,40 +46,31 @@ class ShopFragment : Fragment() {
 
     fun initializeButtons() {
         binding.button1.setOnClickListener {
-            showPopUp(1)
-            updateBalance(5)
+            purchaseFlower(1)
         }
         binding.button2.setOnClickListener {
-            showPopUp(2)
-            updateBalance(10)
+            purchaseFlower(2)
         }
         binding.button3.setOnClickListener {
-            showPopUp(3)
-            updateBalance(15)
+            purchaseFlower(3)
         }
         binding.button4.setOnClickListener {
-            showPopUp(4)
-            updateBalance(20)
+            purchaseFlower(4)
         }
         binding.button5.setOnClickListener {
-            showPopUp(5)
-            updateBalance(25)
+            purchaseFlower(5)
         }
         binding.button6.setOnClickListener {
-            showPopUp(6)
-            updateBalance(30)
+            purchaseFlower(6)
         }
         binding.button7.setOnClickListener {
-            showPopUp(7)
-            updateBalance(35)
+            purchaseFlower(7)
         }
         binding.button8.setOnClickListener {
-            showPopUp(8)
-            updateBalance(40)
+            purchaseFlower(8)
         }
         binding.button9.setOnClickListener {
-            showPopUp(9)
-            updateBalance(45)
+            purchaseFlower(9)
         }
 
     }
@@ -93,6 +82,14 @@ class ShopFragment : Fragment() {
         ) { dialog, whichButton -> }
         val b = dialogBuilder.create()
         b.show()
+    }
+
+    fun purchaseFlower(number : Int) : Boolean {
+        if(balance >= number*5) {
+            updateBalance(number*5)
+            showPopUp(number)
+        }
+        return false
     }
 
     fun updateBalance(price : Int) { //provide price (amount to be subtracted from balance)
