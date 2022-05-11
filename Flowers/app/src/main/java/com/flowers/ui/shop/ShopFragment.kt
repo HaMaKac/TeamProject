@@ -77,19 +77,29 @@ class ShopFragment : Fragment() {
 
     fun showPopUp(num : Int) {
         val dialogBuilder = AlertDialog.Builder(context)
-        dialogBuilder.setMessage("flower nr $num purchased")
-        dialogBuilder.setPositiveButton("Ok"
+        dialogBuilder.setMessage("flower nr $num purchased for $"+num*5)
+        dialogBuilder.setPositiveButton("Ok :)"
         ) { dialog, whichButton -> }
         val b = dialogBuilder.create()
         b.show()
     }
 
-    fun purchaseFlower(number : Int) : Boolean {
+    fun showErrorPopUp(num : Int) {
+        val dialogBuilder = AlertDialog.Builder(context)
+        dialogBuilder.setMessage("$$balance is not enough to buy flower nr $num ($"+num*5+ ")")
+        dialogBuilder.setPositiveButton("Ok :("
+        ) { dialog, whichButton -> }
+        val b = dialogBuilder.create()
+        b.show()
+    }
+
+    fun purchaseFlower(number : Int) {
         if(balance >= number*5) {
             updateBalance(number*5)
             showPopUp(number)
+        } else {
+            showErrorPopUp(number)
         }
-        return false
     }
 
     fun updateBalance(price : Int) { //provide price (amount to be subtracted from balance)
@@ -99,6 +109,6 @@ class ShopFragment : Fragment() {
 
     fun refreshBalanceLabel() {
         val textView: TextView = binding.textShop
-        textView.text = "Available money: $balance"
+        "Available money: $balance".also { textView.text = it }
     }
 }
