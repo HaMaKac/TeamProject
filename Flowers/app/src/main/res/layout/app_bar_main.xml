@@ -12,6 +12,7 @@
         android:theme="@style/Theme.Flowers.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
+            android:backgroundTint="#539165"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
