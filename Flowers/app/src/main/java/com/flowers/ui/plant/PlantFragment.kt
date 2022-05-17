@@ -1,18 +1,27 @@
 package com.flowers.ui.plant
 
+import com.flowers.R
+import android.widget.TextView
+import android.content.Context
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.flowers.R
 import com.flowers.databinding.FragmentPlantBinding
 
+
+
 class PlantFragment : Fragment() {
+
+
+    override fun getContext(): Context? {
+        return super.getContext()
+    }
 
     private var _binding: FragmentPlantBinding? = null
     // This property is only valid between onCreateView and
@@ -23,23 +32,47 @@ class PlantFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
+
         val plantViewModel =
             ViewModelProvider(this).get(PlantViewModel::class.java)
 
         _binding = FragmentPlantBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textPlant
-        plantViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+
+//        val textView: TextView = binding.textPlant
+//        plantViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
+
+        //Timer
+
+        binding.fabPlay.setOnClickListener { v ->
+        startTimer()
+        timerState= TimerState.Running
+        updateButtons()
+    }
+        binding.fabPause.setOnClickListener { v ->
+            timer.cancel()
+            timerState = TimerState.Paused
+            updateButtons()
         }
+
+        binding.fabStop.setOnClickListener { v ->
+                timer.cancel()
+                onTimerFinished()
+        }
+        // /TIMER
+
         //////////////
         ///Placeholder flower, since buying them is not implemented yet
         class PlaceholderFlower(name: String, image : Int){
             val name = name
             val image = image
         }
+
         val flowers = mutableListOf(PlaceholderFlower("SomeFlower1", R.drawable.ic_baseline_gamepad_24),PlaceholderFlower("SomeFlower2", R.drawable.flower_example))
         val flowersNames = mutableListOf<String>()
         flowers.iterator().forEach {
@@ -57,8 +90,137 @@ class PlantFragment : Fragment() {
         return root
     }
 
+    //timer
+
+    override fun onResume(){
+        super.onResume()
+
+        initTimer()
+
+        //TODO: removve bacground timer
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        if(timerState == TimerState.Running){
+            timer.cancel()
+            //TODO: start background
+        }
+        else if(timerState == TimerState.Paused){
+            //TODO: show notification
+        }
+        PrefUtil.setPreviousTimerLenghtSeconds(timerLenghtSeconds,this.requireContext() )
+        PrefUtil.setSecondsRemaining(secondsRemaining, this.requireContext())
+        PrefUtil.setTimerState(timerState, this.requireContext())
+    }
+
+    private fun initTimer(){
+        timerState = PrefUtil.getTimerState(this.requireContext())
+
+        if (timerState == TimerState.Stopped)
+            setNewTimerLenght()
+        else
+            setPreviousTimerLenght()
+
+        secondsRemaining = if(timerState == TimerState.Running || timerState == TimerState.Paused)
+            PrefUtil.getSecondsRemaining(this.requireContext())
+        else
+            timerLenghtSeconds
+
+        //TODO: change secondsRemaining
+
+        if(timerState == TimerState.Running)
+            startTimer()
+
+        updateButtons()
+        updateCountDownUI()
+    }
+
+    private fun onTimerFinished(){
+     timerState = TimerState.Stopped
+
+        setNewTimerLenght()
+
+        binding.progressCountdown.progress = 0
+
+        PrefUtil.setSecondsRemaining(timerLenghtSeconds, this.requireContext())
+        secondsRemaining = timerLenghtSeconds
+
+        updateButtons()
+        updateCountDownUI()
+
+    }
+
+    private fun startTimer(){
+        timerState = TimerState.Running
+
+        timer = object : CountDownTimer(secondsRemaining * 1000, 1000){
+            override fun onFinish() = onTimerFinished()
+
+            override fun onTick(millisUntilFinished: Long) {
+                secondsRemaining = millisUntilFinished / 1000
+                updateCountDownUI()
+            }
+
+        }.start()
+    }
+
+    private fun setNewTimerLenght(){
+        val lenghtMinutes = PrefUtil.getTimerLength(this.requireContext())
+        timerLenghtSeconds = (lenghtMinutes * 60L)
+        binding.progressCountdown.max = timerLenghtSeconds.toInt()
+    }
+
+    private fun setPreviousTimerLenght(){
+        timerLenghtSeconds = PrefUtil.getPreviousTimerLenghtSeconds(this.requireContext())
+        binding.progressCountdown.max = timerLenghtSeconds.toInt()
+    }
+
+    private fun updateCountDownUI() {
+        val minutesUntilFinished = secondsRemaining / 60
+        val secondsInMinuteUntilFinished = secondsRemaining - minutesUntilFinished * 60
+        val secondsStr = secondsInMinuteUntilFinished.toString()
+        binding.textViewCountdown.text = "$minutesUntilFinished:${
+            if (secondsStr.length == 2) secondsStr
+            else "0" + secondsStr}"
+        binding.progressCountdown.progress = (timerLenghtSeconds - secondsRemaining).toInt()
+
+
+    }
+
+    private fun updateButtons(){
+        when (timerState){
+            TimerState.Running ->{
+                binding.fabPlay.isEnabled = false
+                binding.fabStop.isEnabled = true
+                binding.fabPause.isEnabled = true
+            }
+            TimerState.Stopped ->{
+                binding.fabPlay.isEnabled = true
+                binding.fabStop.isEnabled = false
+                binding.fabPause.isEnabled = false
+            }
+            TimerState.Paused->{
+                binding.fabPlay.isEnabled = true
+                binding.fabStop.isEnabled = true
+                binding.fabPause.isEnabled = false
+            }
+        }
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    enum class TimerState{
+        Stopped, Paused, Running
+    }
+
+    private lateinit var timer: CountDownTimer
+    private var timerLenghtSeconds: Long = 0
+    private var timerState = TimerState.Stopped
+
+    private var secondsRemaining = 0L
 }
