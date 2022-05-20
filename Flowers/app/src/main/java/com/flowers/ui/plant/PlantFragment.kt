@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.SeekBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -42,12 +43,30 @@ class PlantFragment : Fragment() {
         val root: View = binding.root
 
 
-//        val textView: TextView = binding.textPlant
-//        plantViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+
 
         //Timer
+
+        binding.seekBar3.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(
+                seekBar: SeekBar, progress: Int, fromUser: Boolean
+            ) {
+                setTextView()
+                PrefUtil.setTimerLenght(seekBar.progress, this@PlantFragment.requireContext())
+                // write custom code when progress is changed
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                PrefUtil.setTimerLenght(seekBar.progress, this@PlantFragment.requireContext())
+            }
+        })
+
+        fun Set(minutes : Int, context: Context ){
+            PrefUtil.setTimerLenght(minutes, this.requireContext())
+        }
 
         binding.fabPlay.setOnClickListener { v ->
         startTimer()
@@ -106,10 +125,9 @@ class PlantFragment : Fragment() {
 
         if(timerState == TimerState.Running){
             timer.cancel()
-            //TODO: start background
         }
         else if(timerState == TimerState.Paused){
-            //TODO: show notification
+
         }
         PrefUtil.setPreviousTimerLenghtSeconds(timerLenghtSeconds,this.requireContext() )
         PrefUtil.setSecondsRemaining(secondsRemaining, this.requireContext())
@@ -117,10 +135,12 @@ class PlantFragment : Fragment() {
     }
 
     private fun initTimer(){
+        PrefUtil.setTimerLenght(binding.seekBar3.progress, this.requireContext())
         timerState = PrefUtil.getTimerState(this.requireContext())
 
-        if (timerState == TimerState.Stopped)
-            setNewTimerLenght()
+        if (timerState == TimerState.Stopped){
+            //PrefUtil.setTimerLenght(binding.seekBar3.progress, this.requireContext())
+            setNewTimerLenght()}
         else
             setPreviousTimerLenght()
 
@@ -152,8 +172,12 @@ class PlantFragment : Fragment() {
         updateCountDownUI()
 
     }
+    private fun setTextView(){
+        binding.textViewCountdown.text = (binding.seekBar3.progress.toString() + ':' + '0' + '0')
+    }
 
     private fun startTimer(){
+       // PrefUtil.setTimerLenght(binding.seekBar3.progress, this.requireContext())
         timerState = TimerState.Running
 
         timer = object : CountDownTimer(secondsRemaining * 1000, 1000){
@@ -168,7 +192,10 @@ class PlantFragment : Fragment() {
     }
 
     private fun setNewTimerLenght(){
+        PrefUtil.setTimerLenght(binding.seekBar3.progress, this.requireContext())
         val lenghtMinutes = PrefUtil.getTimerLength(this.requireContext())
+        //PrefUtil.setTimerLenght(lenghtMinutes, this.requireContext())
+
         timerLenghtSeconds = (lenghtMinutes * 60L)
         binding.progressCountdown.max = timerLenghtSeconds.toInt()
     }

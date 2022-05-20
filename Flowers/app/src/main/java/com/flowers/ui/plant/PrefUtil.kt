@@ -4,6 +4,7 @@ import android.content.Context
 import android.preference.Preference
 import android.preference.PreferenceManager
 import android.preference.PreferenceManager.*
+import android.widget.SeekBar
 
 class PrefUtil {
     companion object{
@@ -15,6 +16,14 @@ class PrefUtil {
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
             return preferences.getInt(TIMER_LENGTH_ID, 10)
         }
+
+        fun setTimerLenght(seconds: Int, contex: Context){
+            val editor = PreferenceManager.getDefaultSharedPreferences(contex).edit()
+            editor.putInt(TIMER_LENGTH_ID, seconds)
+            editor.apply()
+        }
+
+
 
         private const val PREVOIUS_TIMER_LENGHT_SECONDS_ID ="com.flowers.timer.previous_timer_lenght_seconds_id"
 
