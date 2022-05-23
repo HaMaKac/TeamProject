@@ -27,4 +27,9 @@
         android:name="com.flowers.ui.achievements.AchievementFragment"
         android:label="ACHIEVEMENTS"
         tools:layout="@layout/achievement_fragment"/>
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.flowers.ui.infromation.InformationFragment"
+        android:label="INFORMATION"
+        tools:layout="@layout/fragment_information"/>
 </navigation>

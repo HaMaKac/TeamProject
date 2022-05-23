@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.infromation.InformationFragment"
+    android:background="@drawable/side_nav_bar"
+    >
+
+    <TextView
+        android:id="@+id/textInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="Informations"
+        android:textAlignment="center"
+        android:textSize="52sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <Button
+        android:id="@+id/defButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#539175"
+        android:fontFamily="cursive"
+        android:text="What is information blindess?"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="150dp"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/exeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#539175"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="250dp"
+        android:text="Anti-stress exercises"
+        android:fontFamily="cursive"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/difButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#539175"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="350dp"
+        android:text="Difficulty with making decision?"
+        android:fontFamily="cursive"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
