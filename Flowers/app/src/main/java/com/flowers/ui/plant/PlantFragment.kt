@@ -92,7 +92,7 @@ class PlantFragment : Fragment() {
             val image = image
         }
 
-        val flowers = mutableListOf(PlaceholderFlower("SomeFlower1", R.drawable.ic_baseline_gamepad_24),PlaceholderFlower("SomeFlower2", R.drawable.flower_example))
+        val flowers = mutableListOf(PlaceholderFlower("Konwalie", R.drawable.konwalie_plant),PlaceholderFlower("Lilia", R.drawable.lilia_plant), PlaceholderFlower("Notforgetterka", R.drawable.niezapominajka_plant), PlaceholderFlower("Róża", R.drawable.roza_plant))
         val flowersNames = mutableListOf<String>()
         flowers.iterator().forEach {
             flowers -> flowersNames.add(flowers.name)
