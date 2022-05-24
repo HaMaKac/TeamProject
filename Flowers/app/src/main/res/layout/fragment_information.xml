@@ -12,48 +12,58 @@
         android:id="@+id/textInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:fontFamily="cursive"
-        android:text="Informations"
+        android:text="Information"
         android:textAlignment="center"
         android:textSize="52sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="25dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/defButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
         android:backgroundTint="#539175"
-        android:fontFamily="cursive"
-        android:text="What is information blindess?"
+        android:fontFamily="casual"
+        android:text="What is information blindness?"
         android:textColor="@color/black"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInfo"
         tools:ignore="MissingConstraints" />
+
     <Button
         android:id="@+id/exeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:backgroundTint="#539175"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="250dp"
+        android:fontFamily="casual"
         android:text="Anti-stress exercises"
-        android:fontFamily="cursive"
         android:textColor="@color/black"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/defButton"
         tools:ignore="MissingConstraints" />
+
     <Button
         android:id="@+id/difButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:backgroundTint="#539175"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="350dp"
-        android:text="Difficulty with making decision?"
-        android:fontFamily="cursive"
+        android:fontFamily="casual"
+        android:text="Difficulty with making decisions?"
         android:textColor="@color/black"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exeButton"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
