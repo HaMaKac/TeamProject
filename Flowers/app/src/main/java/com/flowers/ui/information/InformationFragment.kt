@@ -1,4 +1,4 @@
-package com.flowers.ui.infromation
+package com.flowers.ui.information
 
 import android.content.Intent
 import android.net.Uri
