@@ -1,7 +1,6 @@
 package com.flowers.ui.plant
 
 import com.flowers.R
-import android.widget.TextView
 import android.content.Context
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -11,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.SeekBar
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.flowers.databinding.FragmentPlantBinding
@@ -52,7 +52,7 @@ class PlantFragment : Fragment() {
                 seekBar: SeekBar, progress: Int, fromUser: Boolean
             ) {
                 setTextView()
-                PrefUtil.setTimerLenght(seekBar.progress, this@PlantFragment.requireContext())
+                PrefUtil.setTimerLength(seekBar.progress, this@PlantFragment.requireContext())
                 // write custom code when progress is changed
             }
 
@@ -60,12 +60,12 @@ class PlantFragment : Fragment() {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-                PrefUtil.setTimerLenght(seekBar.progress, this@PlantFragment.requireContext())
+                PrefUtil.setTimerLength(seekBar.progress, this@PlantFragment.requireContext())
             }
         })
 
         fun Set(minutes : Int, context: Context ){
-            PrefUtil.setTimerLenght(minutes, this.requireContext())
+            PrefUtil.setTimerLength(minutes, this.requireContext())
         }
 
         binding.fabPlay.setOnClickListener { v ->
@@ -116,7 +116,7 @@ class PlantFragment : Fragment() {
 
         initTimer()
 
-        //TODO: removve bacground timer
+        //TODO: remove background timer
 
     }
 
@@ -129,25 +129,25 @@ class PlantFragment : Fragment() {
         else if(timerState == TimerState.Paused){
 
         }
-        PrefUtil.setPreviousTimerLenghtSeconds(timerLenghtSeconds,this.requireContext() )
+        PrefUtil.setPreviousTimerLengthSeconds(timerLengthSeconds,this.requireContext() )
         PrefUtil.setSecondsRemaining(secondsRemaining, this.requireContext())
         PrefUtil.setTimerState(timerState, this.requireContext())
     }
 
     private fun initTimer(){
-        PrefUtil.setTimerLenght(binding.seekBar3.progress, this.requireContext())
+        PrefUtil.setTimerLength(binding.seekBar3.progress, this.requireContext())
         timerState = PrefUtil.getTimerState(this.requireContext())
 
         if (timerState == TimerState.Stopped){
-            //PrefUtil.setTimerLenght(binding.seekBar3.progress, this.requireContext())
-            setNewTimerLenght()}
+            //PrefUtil.setTimerLength(binding.seekBar3.progress, this.requireContext())
+            setNewTimerLength()}
         else
-            setPreviousTimerLenght()
+            setPreviousTimerLength()
 
         secondsRemaining = if(timerState == TimerState.Running || timerState == TimerState.Paused)
             PrefUtil.getSecondsRemaining(this.requireContext())
         else
-            timerLenghtSeconds
+            timerLengthSeconds
 
         //TODO: change secondsRemaining
 
@@ -161,12 +161,12 @@ class PlantFragment : Fragment() {
     private fun onTimerFinished(){
      timerState = TimerState.Stopped
 
-        setNewTimerLenght()
+        setNewTimerLength()
 
         binding.progressCountdown.progress = 0
 
-        PrefUtil.setSecondsRemaining(timerLenghtSeconds, this.requireContext())
-        secondsRemaining = timerLenghtSeconds
+        PrefUtil.setSecondsRemaining(timerLengthSeconds, this.requireContext())
+        secondsRemaining = timerLengthSeconds
 
         updateButtons()
         updateCountDownUI()
@@ -177,7 +177,7 @@ class PlantFragment : Fragment() {
     }
 
     private fun startTimer(){
-       // PrefUtil.setTimerLenght(binding.seekBar3.progress, this.requireContext())
+       // PrefUtil.setTimerLength(binding.seekBar3.progress, this.requireContext())
         timerState = TimerState.Running
 
         timer = object : CountDownTimer(secondsRemaining * 1000, 1000){
@@ -189,20 +189,21 @@ class PlantFragment : Fragment() {
             }
 
         }.start()
+        //onAttach(this.requireContext())
     }
 
-    private fun setNewTimerLenght(){
-        PrefUtil.setTimerLenght(binding.seekBar3.progress, this.requireContext())
+    private fun setNewTimerLength(){
+        PrefUtil.setTimerLength(binding.seekBar3.progress, this.requireContext())
         val lenghtMinutes = PrefUtil.getTimerLength(this.requireContext())
         //PrefUtil.setTimerLenght(lenghtMinutes, this.requireContext())
 
-        timerLenghtSeconds = (lenghtMinutes * 60L)
-        binding.progressCountdown.max = timerLenghtSeconds.toInt()
+        timerLengthSeconds = (lenghtMinutes * 60L)
+        binding.progressCountdown.max = timerLengthSeconds.toInt()
     }
 
-    private fun setPreviousTimerLenght(){
-        timerLenghtSeconds = PrefUtil.getPreviousTimerLenghtSeconds(this.requireContext())
-        binding.progressCountdown.max = timerLenghtSeconds.toInt()
+    private fun setPreviousTimerLength(){
+        timerLengthSeconds = PrefUtil.getPreviousTimerLengthSeconds(this.requireContext())
+        binding.progressCountdown.max = timerLengthSeconds.toInt()
     }
 
     private fun updateCountDownUI() {
@@ -212,7 +213,7 @@ class PlantFragment : Fragment() {
         binding.textViewCountdown.text = "$minutesUntilFinished:${
             if (secondsStr.length == 2) secondsStr
             else "0" + secondsStr}"
-        binding.progressCountdown.progress = (timerLenghtSeconds - secondsRemaining).toInt()
+        binding.progressCountdown.progress = (timerLengthSeconds - secondsRemaining).toInt()
 
 
     }
@@ -246,8 +247,23 @@ class PlantFragment : Fragment() {
     }
 
     private lateinit var timer: CountDownTimer
-    private var timerLenghtSeconds: Long = 0
+    private var timerLengthSeconds: Long = 0
     private var timerState = TimerState.Stopped
 
     private var secondsRemaining = 0L
+
+    /*override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true)
+            {
+                override fun handleOnBackPressed() {
+                    Toast.makeText(activity, "You are not allowed to exit the app", Toast.LENGTH_SHORT).show()
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback
+        )
+    }*/
 }

@@ -1,10 +1,8 @@
 package com.flowers.ui.plant
 
 import android.content.Context
-import android.preference.Preference
 import android.preference.PreferenceManager
 import android.preference.PreferenceManager.*
-import android.widget.SeekBar
 
 class PrefUtil {
     companion object{
@@ -17,37 +15,37 @@ class PrefUtil {
             return preferences.getInt(TIMER_LENGTH_ID, 10)
         }
 
-        fun setTimerLenght(seconds: Int, contex: Context){
-            val editor = PreferenceManager.getDefaultSharedPreferences(contex).edit()
+        fun setTimerLength(seconds: Int, context: Context){
+            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
             editor.putInt(TIMER_LENGTH_ID, seconds)
             editor.apply()
         }
 
 
 
-        private const val PREVOIUS_TIMER_LENGHT_SECONDS_ID ="com.flowers.timer.previous_timer_lenght_seconds_id"
+        private const val PREVIOUS_TIMER_LENGTH_SECONDS_ID ="com.flowers.timer.previous_timer_lenght_seconds_id"
 
-        fun getPreviousTimerLenghtSeconds(contex: Context): Long{
-            val preferences = getDefaultSharedPreferences(contex);
-            return preferences.getLong(PREVOIUS_TIMER_LENGHT_SECONDS_ID, 0);
+        fun getPreviousTimerLengthSeconds(context: Context): Long{
+            val preferences = getDefaultSharedPreferences(context);
+            return preferences.getLong(PREVIOUS_TIMER_LENGTH_SECONDS_ID, 0);
         }
 
-        fun setPreviousTimerLenghtSeconds(seconds: Long, contex: Context){
-            val editor = PreferenceManager.getDefaultSharedPreferences(contex).edit()
-            editor.putLong(PREVOIUS_TIMER_LENGHT_SECONDS_ID, seconds)
+        fun setPreviousTimerLengthSeconds(seconds: Long, context: Context){
+            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
+            editor.putLong(PREVIOUS_TIMER_LENGTH_SECONDS_ID, seconds)
             editor.apply()
         }
 
         private const val TIMER_STATE_ID = "com.flowers.timer.timer_state"
 
-        fun getTimerState(contex: Context): PlantFragment.TimerState{
-            val preferences = getDefaultSharedPreferences(contex);
+        fun getTimerState(context: Context): PlantFragment.TimerState{
+            val preferences = getDefaultSharedPreferences(context);
             val ordinal = preferences.getInt(TIMER_STATE_ID, 0)
             return PlantFragment.TimerState.values()[ordinal];
         }
 
-        fun setTimerState(state: PlantFragment.TimerState, contex: Context){
-            val editor = PreferenceManager.getDefaultSharedPreferences(contex).edit()
+        fun setTimerState(state: PlantFragment.TimerState, context: Context){
+            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
             val ordinal = state.ordinal
             editor.putInt(TIMER_STATE_ID, ordinal)
             editor.apply()
@@ -55,13 +53,13 @@ class PrefUtil {
 
         private const val SECONDS_REMAINING_ID ="com.flowers.timer.seconds_remaining"
 
-        fun getSecondsRemaining(contex: Context): Long{
-            val preferences = getDefaultSharedPreferences(contex);
+        fun getSecondsRemaining(context: Context): Long{
+            val preferences = getDefaultSharedPreferences(context);
             return preferences.getLong(SECONDS_REMAINING_ID, 0);
         }
 
-        fun setSecondsRemaining(seconds: Long, contex: Context){
-            val editor = PreferenceManager.getDefaultSharedPreferences(contex).edit()
+        fun setSecondsRemaining(seconds: Long, context: Context){
+            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
             editor.putLong(SECONDS_REMAINING_ID, seconds)
             editor.apply()
         }
