@@ -97,8 +97,20 @@ class ShopFragment : Fragment() {
         b.show()
     }
 
+    fun showAlreadyOwnedPopUp(num : Int) {
+        val dialogBuilder = AlertDialog.Builder(context)
+        dialogBuilder.setMessage("you already have flower nr $num !")
+        dialogBuilder.setPositiveButton("Ok"
+        ) { dialog, whichButton -> }
+        val b = dialogBuilder.create()
+        b.show()
+    }
+
     fun purchaseFlower(number : Int) {
-        if(balance >= number*5) {
+
+        if((activity as MainActivity).availableFlowers[number]) {
+            showAlreadyOwnedPopUp(number)
+        } else if(balance >= number*5) {
             (activity as MainActivity).availableFlowers[number] = true
             updateBalance(number*5)
             showPopUp(number)
