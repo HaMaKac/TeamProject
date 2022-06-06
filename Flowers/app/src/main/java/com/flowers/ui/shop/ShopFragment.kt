@@ -1,6 +1,8 @@
 package com.flowers.ui.shop
 
+import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +14,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.flowers.MainActivity
 import com.flowers.R
 import com.flowers.databinding.FragmentShopBinding
 
@@ -23,7 +26,7 @@ class ShopFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private var balance = 100
+    private var balance = 2
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +36,7 @@ class ShopFragment : Fragment() {
 
         _binding = FragmentShopBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        balance = (activity as MainActivity).globalBalance
         refreshBalanceLabel()
         initializeButtons()
         return root
@@ -45,6 +48,7 @@ class ShopFragment : Fragment() {
     }
 
     fun initializeButtons() {
+
         binding.button1.setOnClickListener {
             purchaseFlower(1)
         }
@@ -104,6 +108,7 @@ class ShopFragment : Fragment() {
 
     fun updateBalance(price : Int) { //provide price (amount to be subtracted from balance)
         balance -= price
+        (activity as MainActivity).globalBalance -= price
         refreshBalanceLabel()
     }
 
