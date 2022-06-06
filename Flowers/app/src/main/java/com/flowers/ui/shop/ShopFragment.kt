@@ -26,7 +26,7 @@ class ShopFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private var balance = 2
+    private var balance = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -99,6 +99,7 @@ class ShopFragment : Fragment() {
 
     fun purchaseFlower(number : Int) {
         if(balance >= number*5) {
+            (activity as MainActivity).availableFlowers[number] = true
             updateBalance(number*5)
             showPopUp(number)
         } else {

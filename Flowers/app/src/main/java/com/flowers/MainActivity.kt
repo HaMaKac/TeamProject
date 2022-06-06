@@ -19,6 +19,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     var globalBalance = 25
+    var availableFlowers = arrayOf<Boolean>(false, //counting from 1, 0th index is not important
+                                            false,false,false,
+                                            false,false,false,
+                                            false,false,false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +45,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         globalBalance = 15
-        System.out.println("not good")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
