@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     var globalBalance = 25
-    var availableFlowers = arrayOf<Boolean>(false, //counting from 1, 0th index is not important
+    var availableFlowers_o = arrayOf<Boolean>(false, //counting from 1, 0th index is not important
                                             false,false,false,
                                             false,false,false,
                                             false,false,false)
-    var availableFlowers_n = arrayOf<FlowerModel>()
+    var availableFlowers = Array(10) {FlowerModel()}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         globalBalance = 15
+        fillFlowerArray()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -61,6 +62,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun fillFlowerArray() {
-        //availableFlowers[1] = FlowerModel(false, )
+        availableFlowers = arrayOf<FlowerModel>(
+            FlowerModel(false, "Lily", "@drawable/lilia"),
+            FlowerModel(false, "Lily of the Valley", "@drawable/konwalie"),
+            FlowerModel(false, "Gerber", "@drawable/gerber"),
+            FlowerModel(false, "Forget-me-Not", "@drawable/niezapominajka"),
+            FlowerModel(false, "Sunflower", "@drawable/slonecznik"),
+            FlowerModel(false, "Daisy", "@drawable/stokrotka"),
+            FlowerModel(false, "Tulip", "@drawable/tulipan"),
+            FlowerModel(false, "Daffodil", "@drawable/zonkil"),
+            FlowerModel(false, "Rose", "@drawable/roza"))
     }
 }
