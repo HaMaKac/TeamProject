@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.flowers.MainActivity
 import com.flowers.databinding.FragmentPlantBinding
 
 
@@ -92,7 +93,13 @@ class PlantFragment : Fragment() {
             val image = image
         }
 
-        val flowers = mutableListOf(PlaceholderFlower("Lilly of the valley", R.drawable.konwalie_plant),PlaceholderFlower("Lilly", R.drawable.lilia_plant), PlaceholderFlower("Forget-me-not", R.drawable.niezapominajka_plant), PlaceholderFlower("Rose", R.drawable.roza_plant))
+        val flowers = mutableListOf<PlaceholderFlower>()
+        for (i in 1..9) {
+            if((activity as MainActivity).availableFlowers[i].isAvailable) {
+                flowers.add(PlaceholderFlower((activity as MainActivity).availableFlowers[i].name,
+                    (activity as MainActivity).availableFlowers[i].path))
+            }
+        }
         val flowersNames = mutableListOf<String>()
         flowers.iterator().forEach {
             flowers -> flowersNames.add(flowers.name)

@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
-    var globalBalance = 25
+    var globalBalance = 2
     var availableFlowers = Array(10) {FlowerModel()}
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        globalBalance = 15
+        globalBalance = 25
         fillFlowerArray()
     }
 
@@ -59,14 +59,15 @@ class MainActivity : AppCompatActivity() {
 
     fun fillFlowerArray() {
         availableFlowers = arrayOf<FlowerModel>(
-            FlowerModel(false, "Lily", "@drawable/lilia"),
-            FlowerModel(false, "Lily of the Valley", "@drawable/konwalie"),
-            FlowerModel(false, "Gerber", "@drawable/gerber"),
-            FlowerModel(false, "Forget-me-Not", "@drawable/niezapominajka"),
-            FlowerModel(false, "Sunflower", "@drawable/slonecznik"),
-            FlowerModel(false, "Daisy", "@drawable/stokrotka"),
-            FlowerModel(false, "Tulip", "@drawable/tulipan"),
-            FlowerModel(false, "Daffodil", "@drawable/zonkil"),
-            FlowerModel(false, "Rose", "@drawable/roza"))
+            FlowerModel(false, "0th flower", 1),
+            FlowerModel(false, "Lily", R.drawable.lilia_plant),
+            FlowerModel(false, "Lily of the Valley", R.drawable.konwalie_plant),
+            FlowerModel(false, "Gerber", R.drawable.gerber),
+            FlowerModel(false, "Forget-me-Not", R.drawable.niezapominajka_plant),
+            FlowerModel(false, "Sunflower", R.drawable.slonecznik),
+            FlowerModel(false, "Daisy", R.drawable.stokrotka),
+            FlowerModel(false, "Tulip", R.drawable.tulipan),
+            FlowerModel(false, "Daffodil", R.drawable.zonkil),
+            FlowerModel(false, "Rose", R.drawable.roza_plant))
     }
 }
