@@ -20,10 +20,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     var globalBalance = 25
-    var availableFlowers_o = arrayOf<Boolean>(false, //counting from 1, 0th index is not important
-                                            false,false,false,
-                                            false,false,false,
-                                            false,false,false)
     var availableFlowers = Array(10) {FlowerModel()}
 
     override fun onCreate(savedInstanceState: Bundle?) {

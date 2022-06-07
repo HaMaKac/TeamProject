@@ -108,10 +108,10 @@ class ShopFragment : Fragment() {
 
     fun purchaseFlower(number : Int) {
 
-        if((activity as MainActivity).availableFlowers_o[number]) {
+        if((activity as MainActivity).availableFlowers[number].isAvailable) {
             showAlreadyOwnedPopUp(number)
         } else if(balance >= number*5) {
-            (activity as MainActivity).availableFlowers_o[number] = true
+            (activity as MainActivity).availableFlowers[number].isAvailable = true
             updateBalance(number*5)
             showPopUp(number)
         } else {
