@@ -196,7 +196,7 @@ class PlantFragment : Fragment() {
             }
 
         }.start()
-        //onAttach(this.requireContext())
+        onAttach(this.requireContext())
     }
 
     private fun setNewTimerLength(){
@@ -259,18 +259,18 @@ class PlantFragment : Fragment() {
 
     private var secondsRemaining = 0L
 
-    /*override fun onAttach(context: Context) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         val callback: OnBackPressedCallback =
             object : OnBackPressedCallback(true)
             {
                 override fun handleOnBackPressed() {
-                    Toast.makeText(activity, "You are not allowed to exit the app", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Your flower will die, if you leave the app :(", Toast.LENGTH_SHORT).show()
                 }
             }
         requireActivity().onBackPressedDispatcher.addCallback(
             this,
             callback
         )
-    }*/
+    }
 }
