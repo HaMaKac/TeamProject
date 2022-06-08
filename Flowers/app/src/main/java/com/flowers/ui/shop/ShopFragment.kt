@@ -81,7 +81,7 @@ class ShopFragment : Fragment() {
 
     fun showPopUp(num : Int) {
         val dialogBuilder = AlertDialog.Builder(context)
-        dialogBuilder.setMessage("flower nr $num purchased for $"+num*5)
+        dialogBuilder.setMessage((activity as MainActivity).availableFlowers[num].name + " purchased for $"+num*5)
         dialogBuilder.setPositiveButton("Ok :)"
         ) { dialog, whichButton -> }
         val b = dialogBuilder.create()
@@ -90,7 +90,7 @@ class ShopFragment : Fragment() {
 
     fun showErrorPopUp(num : Int) {
         val dialogBuilder = AlertDialog.Builder(context)
-        dialogBuilder.setMessage("$$balance is not enough to buy flower nr $num ($"+num*5+ ")")
+        dialogBuilder.setMessage("$$balance is not enough to buy " +(activity as MainActivity).availableFlowers[num].name+ " ($"+num*5+ ")")
         dialogBuilder.setPositiveButton("Ok :("
         ) { dialog, whichButton -> }
         val b = dialogBuilder.create()
@@ -99,7 +99,7 @@ class ShopFragment : Fragment() {
 
     fun showAlreadyOwnedPopUp(num : Int) {
         val dialogBuilder = AlertDialog.Builder(context)
-        dialogBuilder.setMessage("you already have flower nr $num !")
+        dialogBuilder.setMessage("you already have " +(activity as MainActivity).availableFlowers[num].name+ "!")
         dialogBuilder.setPositiveButton("Ok"
         ) { dialog, whichButton -> }
         val b = dialogBuilder.create()
