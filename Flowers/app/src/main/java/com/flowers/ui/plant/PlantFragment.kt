@@ -62,6 +62,22 @@ class PlantFragment : Fragment() {
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
                 PrefUtil.setTimerLength(seekBar.progress, this@PlantFragment.requireContext())
+                if(timerState == TimerState.Running){
+                    timer.cancel()
+                    onTimeChanged()
+                    startTimer()
+                    updateButtons()
+                }
+                else if (timerState == TimerState.Paused){
+                    timer.cancel()
+                    onTimeChanged()
+                    timerState = TimerState.Paused;
+                }
+                else if(timerState == TimerState.Stopped){
+                    timer.cancel()
+                    onTimeChanged()
+                    timerState = TimerState.Stopped
+                }
             }
         })
 
@@ -167,6 +183,7 @@ class PlantFragment : Fragment() {
 
     private fun onTimerFinished(){
      timerState = TimerState.Stopped
+        //Toast.makeText(activity, "You earned 5$!", Toast.LENGTH_SHORT).show()
 
         setNewTimerLength()
 
@@ -179,6 +196,16 @@ class PlantFragment : Fragment() {
         updateCountDownUI()
 
     }
+
+    private fun onTimeChanged(){
+        setNewTimerLength()
+
+        binding.progressCountdown.progress = 0;
+
+        PrefUtil.setSecondsRemaining(timerLengthSeconds, this.requireContext())
+        secondsRemaining = timerLengthSeconds
+    }
+
     private fun setTextView(){
         binding.textViewCountdown.text = (binding.seekBar3.progress.toString() + ':' + '0' + '0')
     }
@@ -253,7 +280,16 @@ class PlantFragment : Fragment() {
         Stopped, Paused, Running
     }
 
-    private lateinit var timer: CountDownTimer
+    private var timer: CountDownTimer = object : CountDownTimer(0, 1000){
+        override fun onFinish() = onTimerFinished()
+
+        override fun onTick(millisUntilFinished: Long) {
+            secondsRemaining = millisUntilFinished / 1000
+            updateCountDownUI()
+
+        }
+
+    }
     private var timerLengthSeconds: Long = 0
     private var timerState = TimerState.Stopped
 
@@ -270,7 +306,7 @@ class PlantFragment : Fragment() {
             }
         requireActivity().onBackPressedDispatcher.addCallback(
             this,
-            callback
+          callback
         )
     }
 }
