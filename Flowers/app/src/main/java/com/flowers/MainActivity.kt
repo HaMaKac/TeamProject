@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        globalBalance = 25
+        globalBalance = 30
         fillFlowerArray()
     }
 
@@ -62,12 +62,12 @@ class MainActivity : AppCompatActivity() {
             FlowerModel(false, "0th flower", 1),
             FlowerModel(false, "Lily", R.drawable.lilia_plant),
             FlowerModel(false, "Lily of the Valley", R.drawable.konwalie_plant),
-            FlowerModel(false, "Gerber", R.drawable.gerber),
+            FlowerModel(false, "Gerber", R.drawable.gerber_plant),
             FlowerModel(false, "Forget-me-Not", R.drawable.niezapominajka_plant),
-            FlowerModel(false, "Sunflower", R.drawable.slonecznik),
-            FlowerModel(false, "Daisy", R.drawable.stokrotka),
-            FlowerModel(false, "Tulip", R.drawable.tulipan),
-            FlowerModel(false, "Daffodil", R.drawable.zonkil),
+            FlowerModel(false, "Sunflower", R.drawable.slonecznik_plant),
+            FlowerModel(false, "Daisy", R.drawable.stokrotka_plant),
+            FlowerModel(false, "Tulip", R.drawable.tulipan_plant),
+            FlowerModel(false, "Daffodil", R.drawable.zonkil_plant),
             FlowerModel(false, "Rose", R.drawable.roza_plant))
     }
 }
