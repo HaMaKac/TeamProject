@@ -184,6 +184,7 @@ class PlantFragment : Fragment() {
     private fun onTimerFinished(){
      timerState = TimerState.Stopped
         //Toast.makeText(activity, "You earned 5$!", Toast.LENGTH_SHORT).show()
+        updateBalance(5);
 
         setNewTimerLength()
 
@@ -193,6 +194,7 @@ class PlantFragment : Fragment() {
         secondsRemaining = timerLengthSeconds
 
         updateButtons()
+        
         updateCountDownUI()
 
     }
@@ -308,5 +310,9 @@ class PlantFragment : Fragment() {
             this,
           callback
         )
+    }
+
+    fun updateBalance(amount : Int) { //provide amount to be added to the balance
+        (activity as MainActivity).globalBalance += amount
     }
 }
