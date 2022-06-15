@@ -127,6 +127,6 @@ class ShopFragment : Fragment() {
 
     fun refreshBalanceLabel() {
         val textView: TextView = binding.textShop
-        "Available money: $balance".also { textView.text = it }
+        "Available money: $$balance".also { textView.text = it }
     }
 }

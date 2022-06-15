@@ -126,7 +126,7 @@
 
     <TextView
         android:fontFamily="sans-serif-thin"
-        android:textColor="@color/white"
+        android:textColor="@color/teal_700"
         android:textStyle="italic|bold"
         android:fontWeight="400"
         android:id="@+id/text_shop"
