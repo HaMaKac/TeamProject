@@ -59,15 +59,15 @@ class MainActivity : AppCompatActivity() {
 
     fun fillFlowerArray() {
         availableFlowers = arrayOf<FlowerModel>(
-            FlowerModel(false, "0th flower", 1),
-            FlowerModel(false, "Lily", R.drawable.lilia_plant),
-            FlowerModel(false, "Lily of the Valley", R.drawable.konwalie_plant),
-            FlowerModel(false, "Gerber", R.drawable.gerber_plant),
-            FlowerModel(false, "Forget-me-Not", R.drawable.niezapominajka_plant),
-            FlowerModel(false, "Sunflower", R.drawable.slonecznik_plant),
-            FlowerModel(false, "Daisy", R.drawable.stokrotka_plant),
-            FlowerModel(false, "Tulip", R.drawable.tulipan_plant),
-            FlowerModel(false, "Daffodil", R.drawable.zonkil_plant),
-            FlowerModel(false, "Rose", R.drawable.roza_plant))
+            FlowerModel(false, "0th flower", 1, false),
+            FlowerModel(false, "Lily", R.drawable.lilia_plant, false),
+            FlowerModel(false, "Lily of the Valley", R.drawable.konwalie_plant, false),
+            FlowerModel(false, "Gerber", R.drawable.gerber_plant, false),
+            FlowerModel(false, "Forget-me-Not", R.drawable.niezapominajka_plant, false),
+            FlowerModel(false, "Sunflower", R.drawable.slonecznik_plant, false),
+            FlowerModel(false, "Daisy", R.drawable.stokrotka_plant, false),
+            FlowerModel(false, "Tulip", R.drawable.tulipan_plant, false),
+            FlowerModel(false, "Daffodil", R.drawable.zonkil_plant, false),
+            FlowerModel(false, "Rose", R.drawable.roza_plant, false))
     }
 }
