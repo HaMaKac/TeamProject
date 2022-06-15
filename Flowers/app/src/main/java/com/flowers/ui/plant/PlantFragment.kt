@@ -184,7 +184,9 @@ class PlantFragment : Fragment() {
     private fun onTimerFinished(){
      timerState = TimerState.Stopped
         //Toast.makeText(activity, "You earned 5$!", Toast.LENGTH_SHORT).show()
-        updateBalance(5);
+        //updateBalance(5);
+        //it works, but method onTimerFinished is not proper place for this
+        //(it's executed during most operations of time change/stop/pause etc.)
 
         setNewTimerLength()
 
